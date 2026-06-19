@@ -1,274 +1,323 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>OSAKA</title>
-    <link rel="shortcut icon" href="images/restaurant.png" type="image/png">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSAKA | Premium Villa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+  <!-- Loading -->
   <section id="loading">
-    <div class="sk-chase">
-  <div class="sk-chase-dot"></div>
-  <div class="sk-chase-dot"></div>
-  <div class="sk-chase-dot"></div>
-  <div class="sk-chase-dot"></div>
-  <div class="sk-chase-dot"></div>
-  <div class="sk-chase-dot"></div>
-</div>
-  </section>
-  <button  id ="btnup" class="btn btn-dark">
-    <i class="fas fa-arrow-alt-circle-up"></i>
-  </button>
-  <section id="change">
-    <div class="color-box float-left">
-      <h4>Choose Color :</h4>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
+    <div class="loader-card">
+      <div class="lux-loader"></div>
+      <span>OSAKA</span>
     </div>
-    <i id="btnSeating" class="fas fa-cog"></i>
-    <div class="clearfix"></div>
   </section>
-    <header class="home">
-      <div class="layer">
-        <div class=" overlay overflow-auto">
-          <nav id="navbar" class="navbar navbar-expand-lg  py-2 fixed-top   ">
-            <a class="navbar-brand text-white" href="#">OSAKA</a>
-            <button class="navbar-toggler btn-nav" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto fw-lighter">
-                <li class="nav-item active">
-                  <a class="nav-link " href="#FEATURES">FEATURES<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link " href="#GALLERY">GALLERY<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link " href="#MENU">MENU<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link " href="#SERVICES">SERVICES <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link " href="#CONTACTS">CONTACTS <span class="sr-only">(current)</span></a>
-                </li>
-              </ul>
-    
-            </div>
-          </nav> 
-          <div class="header-contact">
-            <div class="container marg text-white">
-              <div class="row">
-                <div class="col-lg-5">
-                  <p>BY SIMPLEQODE</p>
-                  <h1>Luxury villa located in the
-                    heart of West Hollywood</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore corrupti modi delectus labore quas velit impedit in accusamus hic dolorem?</p>
-                    <button class="btn   btn-warning  bg-transparent text-white">Schedule a showing</button>
-                </div>
-                 <div class="col-lg-7 d-flex justify-content-end align-items-start h4-position">  <!--ده موجود فى اخر فديو الاسبوع 5 بالتفصيل وليه استخدمت الفلكس -->
-                  <h4 class="sideH4">Incline real estate</h4>
-              </div>
-              </div>
-              
-           </div>
+
+  <!-- Back To Top -->
+  <button id="btnup" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Color Settings -->
+  <aside id="change" aria-label="Theme color panel">
+    <div class="color-box">
+      <h4>Choose Accent</h4>
+      <span class="color-item" data-color="#f5ba4b"></span>
+      <span class="color-item" data-color="#ff6b6b"></span>
+      <span class="color-item" data-color="#00bcd4"></span>
+      <span class="color-item" data-color="#7c5cff"></span>
+      <span class="color-item" data-color="#20c997"></span>
+    </div>
+    <i id="btnSeating" class="fa-solid fa-gear"></i>
+  </aside>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-premium fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#HOME">
+        <span class="brand-mark"><i class="fa-solid fa-crown"></i></span>
+        OSAKA
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#FEATURES">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#GALLERY">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#MENU">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#SERVICES">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#CONTACTS">Contacts</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="HOME" class="hero">
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <div class="row w-100">
+        <div class="col-xl-8 col-lg-9">
+          <div class="hero-kicker reveal"><i class="fa-solid fa-location-dot"></i> West Hollywood Private Estate</div>
+          <h1 class="reveal">Luxury villa located in the heart of West Hollywood</h1>
+          <p class="reveal">A cinematic real-estate landing page with immersive scroll animations, premium gallery experience, responsive layout, and a refined luxury brand feel.</p>
+          <div class="hero-actions reveal">
+            <a href="#CONTACTS" class="btn-lux">Schedule a showing <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            <a href="#GALLERY" class="btn-ghost"><i class="fa-regular fa-images mr-2"></i> Explore gallery</a>
           </div>
         </div>
-        
-          
-               
-  
-          </div>
-        
-            
       </div>
+    </div>
+    <div class="hero-card reveal-right">
+      <div class="hero-card-img"></div>
+      <h3>Modern lakeside villa</h3>
+      <p>Private pool, panoramic views, bright interiors, and luxury hosting spaces.</p>
+    </div>
+    <div class="vertical-title">Incline real estate</div>
+    <div class="scroll-indicator"></div>
+  </header>
 
-        
-            
-        
-    </header>
-    <!-- FEATURES -->
-    <section id="FEATURES " class=" my-5  ">
-      <div class="container text-center ">
-        
-          
-            <h2 class="my-4">Live like a celebrity <i class="fas fa-shopping-cart"></i></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum eos earum asperiores, soluta perferendis dignissimos.</p>
-
-          <div class="row">
-            <div class="col-md-4 ">
-              <i class="fas fa-bed icon-color"></i>
-              <h3>Five bedrooms</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt amet ipsum sit impedit repellat.</p>
-            </div>
-            <div class="col-md-4 ">
-              <i class="fas fa-swimming-pool  icon-color"></i>
-              <h3>Backyard pool</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt amet ipsum sit impedit repellat.</p>
-            </div>
-            <div class="col-md-4 ">
-              <i class="fas fa-bed icon-color"></i>
-              <h3>square feet</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt amet ipsum sit impedit repellat.</p>
-            </div>
-          </div>
-          
-        
-      </div>
-    </section>
-    <!-- GALLERY  -->
-    <section id="GALLERY " >
-      
-        <div class="w-50 m-auto py-5 GALLERY-class">
-          <img  class="w-100  " id="main-img" src="images/item-big.jpg">
-              <img class="img-item" src="images/item1.jpg">
-              <img class="img-item" src="images/item2.jpg">
-              <img class="img-item" src="images/item3.jpg">
-              <img class="img-item" src="images/item4.jpg">
-              <img class="img-item" src="images/item5.jpg">
-              <div class="clearfix"></div>
+  <!-- Stats / Features intro -->
+  <section class="features-wrap">
+    <div class="container">
+      <div class="stats-panel reveal">
+        <div class="stat-item">
+          <i class="fa-solid fa-bed"></i>
+          <div class="stat-number counter" data-target="5">0</div>
+          <div class="stat-label">Bedrooms</div>
         </div>
-   
-    </section>
-    <!-- MENU -->
-    <section id="MENU">
-      <div class="container">
-        <div class="m-auto col-md-5 py-5 ">
-          <h3 class="text-center">Our menu</h3>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Excepturi asperiores beatae quae inventore, molestiae dolorum</p>
-          <nav class="navbar navbar-expand-lg navbar-light text-bold ">
-            <div class="container-fluid  ">
-            
-                <li class="navbar-brand  p-2 METRONIC active "  data-filter="all" id="All">All</li>
-              <li class="navbar-brand  p-2 list-hov"   data-filter=".hom" id ="Home">Home</li>
-              <li class="navbar-brand  p-2 list-hov" data-filter=".off" id ="Office">Office</li>
-              
-              
-            </div>
-          </nav>
-          </div>
-          <div class="row mm">
-            <div class="row col-md-6 my-4 menu-item mix hom ">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item1.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              <hr>
-            </div>
-            <div class="row col-md-6 my-4 menu-item mix off">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item2.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              <hr>
-            </div>
-            <div class="row col-md-6 my-4 menu-item mix hom ">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item3.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              <hr>
-            </div>
-            <div class="row col-md-6 my-4 menu-item mix off">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item4.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              
-            </div>
-            
-            <div class="row col-md-6 my-4 menu-item mix hom">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item5.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              <hr>
-            </div>
-            <div class="row col-md-6 my-4 menu-item mix mix off ">
-              <div class="col-md-3">
-                <img class=" w-100" src="images/item-big.jpg">
-              </div>
-              <div class="col-md-7">
-                <h4 class="font-weight-bolder">Backyard pool</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut</p>
-              </div>
-              <h5 class="col-md-2 d-flex align-items-center font-weight-bolder">$12</h5>
-              <hr style="text-decoration: underline block rgb(13, 13, 14)">
-            </div>
-            
-          </div>
-
+        <div class="stat-item">
+          <i class="fa-solid fa-water-ladder"></i>
+          <div class="stat-number counter" data-target="1">0</div>
+          <div class="stat-label">Backyard Pool</div>
         </div>
-        
-      </div>
-      <h3></h3>
-    </section>
-    <!-- SERVICES -->
-
-    <section id="SERVICES" class="my-5">
-      <div class="container">
-        <div class="m-auto w-50 text-center">
-          <h3 class="font-weight-bolder">Our key features</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing<br>
-            elit. Saepe aspernatur ullam doloremque deleniti sequi obcaecat</p>
+        <div class="stat-item">
+          <i class="fa-solid fa-vector-square"></i>
+          <div class="stat-number counter" data-target="6200">0</div>
+          <div class="stat-label">Square Feet</div>
         </div>
-       
+        <div class="stat-item">
+          <i class="fa-solid fa-car-side"></i>
+          <div class="stat-number counter" data-target="3">0</div>
+          <div class="stat-label">Garages</div>
+        </div>
       </div>
-    </section>
-    <!-- CONTACTS -->
-    <section id="CONTACTS" >
-      <div class="container">
-        <div class="row py-5">
-          <div class="col-md-7">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="FEATURES" class="section-pad">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow">Features</span>
+        <h2 class="section-title">Live like a <span class="gradient-text">celebrity</span></h2>
+        <p class="section-desc">Everything is built around comfort, calm luxury, and a strong visual experience that works beautifully on desktop and mobile.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-bed"></i></div>
+            <h3>Five bedrooms</h3>
+            <p>Elegant master suites, warm lighting, premium materials, and generous room dimensions for a high-end lifestyle.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-water-ladder"></i></div>
+            <h3>Backyard pool</h3>
+            <p>A private outdoor escape with lounge areas, sunset views, and seamless connection to the main living space.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+            <h3>Open living</h3>
+            <p>Wide glass openings, bright interiors, and a clean layout designed for both everyday living and premium hosting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="GALLERY" class="section-pad">
+    <div class="container">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-5 reveal-left">
+          <span class="eyebrow">Gallery</span>
+          <h2 class="section-title">A cinematic interior experience</h2>
+        </div>
+        <div class="col-lg-7 reveal-right">
+          <p class="section-desc ml-lg-auto mr-lg-0 text-lg-left">Click any thumbnail to switch the main preview. The transitions and hover states make the project feel more interactive during presentation.</p>
+        </div>
+      </div>
+      <div class="gallery-shell reveal">
+        <div class="gallery-main">
+          <img id="main-img" src="images/item-big.jpg" alt="Villa main preview">
+          <div class="gallery-badge">
+            <strong>Premium Interior</strong><br>
+            <small>Bright living room / luxury mood</small>
+          </div>
+        </div>
+        <div class="thumbs">
+          <img class="img-item active-thumb" src="images/item1.jpg" alt="Gallery item 1">
+          <img class="img-item" src="images/item2.jpg" alt="Gallery item 2">
+          <img class="img-item" src="images/item3.jpg" alt="Gallery item 3">
+          <img class="img-item" src="images/item4.jpg" alt="Gallery item 4">
+          <img class="img-item" src="images/item5.jpg" alt="Gallery item 5">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu / Rooms -->
+  <section id="MENU" class="section-pad">
+    <div class="container position-relative">
+      <div class="text-center reveal">
+        <span class="eyebrow">Villa Zones</span>
+        <h2 class="section-title">Our menu</h2>
+        <p class="section-desc">Filter between home and office-inspired interior spaces with animated cards and clean presentation structure.</p>
+      </div>
+
+      <ul class="filter-nav reveal">
+        <li class="active" data-filter="all">All</li>
+        <li data-filter=".hom">Home</li>
+        <li data-filter=".off">Office</li>
+      </ul>
+
+      <div class="row mm">
+        <div class="col-lg-6 mix hom">
+          <div class="menu-card">
+            <img src="images/item1.jpg" alt="Backyard pool">
+            <div>
+              <h4>Backyard pool</h4>
+              <p>Outdoor lounge zone with privacy, water feature, and evening lighting.</p>
+            </div>
+            <div class="price-pill">$12</div>
+          </div>
+        </div>
+        <div class="col-lg-6 mix off">
+          <div class="menu-card">
+            <img src="images/item2.jpg" alt="Private office">
+            <div>
+              <h4>Private office</h4>
+              <p>Quiet workspace with natural light and premium minimal detailing.</p>
+            </div>
+            <div class="price-pill">$18</div>
+          </div>
+        </div>
+        <div class="col-lg-6 mix hom">
+          <div class="menu-card">
+            <img src="images/item3.jpg" alt="Master suite">
+            <div>
+              <h4>Master suite</h4>
+              <p>Large bedroom with soft tones, modern storage, and hotel-like comfort.</p>
+            </div>
+            <div class="price-pill">$24</div>
+          </div>
+        </div>
+        <div class="col-lg-6 mix off">
+          <div class="menu-card">
+            <img src="images/item4.jpg" alt="Meeting room">
+            <div>
+              <h4>Meeting room</h4>
+              <p>Elegant office corner suitable for calls, meetings, and focused work.</p>
+            </div>
+            <div class="price-pill">$16</div>
+          </div>
+        </div>
+        <div class="col-lg-6 mix hom">
+          <div class="menu-card">
+            <img src="images/item5.jpg" alt="Living area">
+            <div>
+              <h4>Living area</h4>
+              <p>Open layout connected to terrace views and family hosting spaces.</p>
+            </div>
+            <div class="price-pill">$21</div>
+          </div>
+        </div>
+        <div class="col-lg-6 mix off">
+          <div class="menu-card">
+            <img src="images/item-big.jpg" alt="Executive lounge">
+            <div>
+              <h4>Executive lounge</h4>
+              <p>Premium lounge zone with statement furniture and strong visual impact.</p>
+            </div>
+            <div class="price-pill">$29</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="SERVICES" class="section-pad">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Services</span>
+        <h2 class="section-title">Our key features</h2>
+        <p class="section-desc">Instead of a normal static section, this part looks like an interactive feature map for a stronger presentation effect.</p>
+      </div>
+      <div class="service-map reveal">
+        <div class="service-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Smart security</h4>
+          <p>Advanced access control, cameras, and safe arrival experience.</p>
+        </div>
+        <div class="service-item">
+          <i class="fa-solid fa-leaf"></i>
+          <h4>Green landscape</h4>
+          <p>Calm exterior areas that support privacy and luxury mood.</p>
+        </div>
+        <div class="service-item">
+          <i class="fa-solid fa-wifi"></i>
+          <h4>Smart home</h4>
+          <p>Lighting, climate, media, and comfort controls from one system.</p>
+        </div>
+        <div class="service-item">
+          <i class="fa-solid fa-mug-hot"></i>
+          <h4>Hosting areas</h4>
+          <p>Indoor and outdoor spaces designed for premium guest experiences.</p>
+        </div>
+        <div class="service-center"><i class="fa-solid fa-house"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="CONTACTS" class="section-pad">
+    <div class="container">
+      <div class="contact-card reveal">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mb-4 mb-lg-0">
+            <span class="eyebrow">Contact</span>
             <h3>Schedule a free showing tomorrow</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae dolores, voluptates atque dicta vero quibusdam laudantium saepe sequi harum.</p>
+            <p>Ready to present a premium villa page with modern motion, smooth scrolling, animated sections, responsive layout, and a polished visual identity.</p>
           </div>
-          <div class="col-md-4 d-flex align-items-center">
-            <button class="btn btn-outline-warning">
-              Get in touch with us</button>
+          <div class="col-lg-4 text-lg-right">
+            <a href="mailto:hello@osaka.com" class="btn-lux">Get in touch with us</a>
           </div>
-
+        </div>
+        <div class="footer-note">
+          <span>© 2026 OSAKA Luxury Estate</span>
+          <span>Designed for premium presentations</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/venobox.min.js"></script>
-  <script src="js/mixitup.min.js"></script>
-
-  <script src="js/index.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
+<script src="js/index.js"></script>
 </body>
+</html>

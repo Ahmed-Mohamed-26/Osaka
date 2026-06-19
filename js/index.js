@@ -1,112 +1,137 @@
-$(document).ready(function(){
-// save text color on localstorg
-    let mainColor=localStorage.getItem("color-option")
-// بقله لو لقيت حاجه متخزنه هتها 
-if(mainColor!==null){
-    // document.documentElement.style.setProperty("color-Item",mainColor)
-    $("body").css("color",localStorage.getItem("color-option"))
-}
+    $(document).ready(function(){
+      /* ========= Loading ========= */
+      setTimeout(function(){
+        $('#loading').addClass('hide');
+        $('body').addClass('loaded');
+      }, 950);
 
-// options color
-colorItem=$(".color-item");
-colorItem.eq(0).css("backgroundColor","black");
-colorItem.eq(1).css("backgroundColor","tomato");
-colorItem.eq(2).css("backgroundColor","#09c");
-colorItem.eq(3).css("backgroundColor","orange");
-colorItem.eq(4).css("backgroundColor","teal");
+      /* ========= Accent Color LocalStorage ========= */
+      const savedColor = localStorage.getItem('osaka-accent-color');
+      if(savedColor){
+        document.documentElement.style.setProperty('--accent', savedColor);
+      }
+      $('.color-item').each(function(){
+        $(this).css('backgroundColor', $(this).data('color'));
+      });
+      $('.color-item').click(function(){
+        const color = $(this).data('color');
+        document.documentElement.style.setProperty('--accent', color);
+        localStorage.setItem('osaka-accent-color', color);
+      });
 
-colorItem.click(function(){
-    let color  = $(this).css("backgroundColor");
-    $("body,html").css("color",color)
-    localStorage.setItem("color-option",color)
-})
+      /* ========= Settings Box ========= */
+      $('#btnSeating').click(function(){
+        $('#change').toggleClass('open');
+      });
 
-// animate seting box
-$("#change i").click(function(){
-    let colorboxWidth= $(".color-box").outerWidth();
-    if($("#change").css('left') == "-199.156px")
-    {
-        
-        $("#change").animate({left:`0`} , 1000); 
-    }   else {
-        $("#change").animate({left:`-${colorboxWidth}`} , 1000);
-    } 
-}) 
+      /* ========= Navbar Scroll + Back To Top ========= */
+      function navState(){
+        if($(window).scrollTop() > 60){
+          $('#navbar').addClass('scrolled');
+          $('#btnup').fadeIn(250);
+        }else{
+          $('#navbar').removeClass('scrolled');
+          $('#btnup').fadeOut(250);
+        }
+      }
+      navState();
+      $(window).on('scroll', navState);
 
-// change background navbar and fedin botton when i start scroll
-$(window).scroll(function(){
-    if($(window).scrollTop() > $("#navbar").height()){
-        $("#btnup").fadeIn(500)
-        $("#navbar").css("backgroundColor","rgba(0,0,0,0.5)");
-        
-    }
-    else{
-        $("#btnup").fadeOut(500)
-        $("#navbar").css("backgroundColor","transparent");
-    }
-})
-//smooth scroll to section with navbar
+      $('#btnup').click(function(){
+        $('html, body').animate({scrollTop:0}, 650);
+      });
 
-$("nav li a").click(function(){
-        let href=$(this).attr("href")
-        $("html,body").animate({scrollTop:$(href).offset().top},2000)
-     })
+      /* ========= Smooth Scroll + Close Mobile Menu ========= */
+      $('.nav-link, .btn-lux, .btn-ghost, .navbar-brand').click(function(e){
+        const href = $(this).attr('href');
+        if(href && href.startsWith('#') && $(href).length){
+          e.preventDefault();
+          $('html, body').animate({scrollTop:$(href).offset().top - 70}, 850);
+          $('.navbar-collapse').collapse('hide');
+        }
+      });
 
- 
-// when i click in boton scroll
-    $("#btnup").click(function(){
-        $("html,body").animate({scrollTop :` 0`}, 500)
-    }) 
+      /* ========= Active Link On Scroll ========= */
+      const sections = $('header[id], section[id]');
+      $(window).on('scroll', function(){
+        const scrollPos = $(document).scrollTop() + 120;
+        sections.each(function(){
+          const top = $(this).offset().top;
+          const bottom = top + $(this).outerHeight();
+          const id = $(this).attr('id');
+          if(scrollPos >= top && scrollPos <= bottom){
+            $('.nav-link').removeClass('active-link');
+            $('.nav-link[href="#'+id+'"]').addClass('active-link');
+          }
+        });
+      });
 
-// GALLERY Slids
-$(".img-item").click(function(e){
+      /* ========= Gallery ========= */
+      $('.img-item').click(function(){
+        const imgSrc = $(this).attr('src');
+        $('.img-item').removeClass('active-thumb');
+        $(this).addClass('active-thumb');
+        $('#main-img').css('opacity', 0);
+        setTimeout(function(){
+          $('#main-img').attr('src', imgSrc).css('opacity', 1);
+        }, 220);
+      });
 
-    let imgSrc = $(this).attr('src');
+      /* ========= MixItUp Filter ========= */
+      if(typeof mixitup !== 'undefined'){
+        mixitup('.mm', {
+          selectors:{target:'.mix'},
+          animation:{duration:450, effects:'fade translateY(22px) stagger(45ms)'}
+        });
+      }
+      $('.filter-nav li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+      });
 
-    $("#main-img").attr('src',imgSrc); 
-})
-//way to fedin and fed out menu items
-var mixer=mixitup('.mm')
-/* //anther way to fedin and fed out menu items by jqury
- $("#All").click(function(){
-    $(".off,.hom").fadeIn(500)
-    // $(".off,.hom").animate({display:`block`},2000)
-})
-$("#Home").click(function(){
-    //$("div").filter(".off").css("display","none")
-    $(".off").fadeOut(1000)
-    $(".hom").fadeIn(1000)
+      /* ========= Reveal On Scroll ========= */
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('show');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.14});
+      revealElements.forEach(function(el){revealObserver.observe(el);});
 
-})
+      /* ========= Counters ========= */
+      const counters = document.querySelectorAll('.counter');
+      let countersStarted = false;
+      function startCounters(){
+        if(countersStarted) return;
+        const statsTop = $('.stats-panel').offset().top;
+        if($(window).scrollTop() + $(window).height() > statsTop + 80){
+          countersStarted = true;
+          counters.forEach(function(counter){
+            const target = +counter.getAttribute('data-target');
+            const duration = 1300;
+            const start = performance.now();
+            function update(now){
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const value = Math.floor(eased * target);
+              counter.textContent = target >= 1000 ? value.toLocaleString() : value;
+              if(progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+        }
+      }
+      startCounters();
+      $(window).on('scroll', startCounters);
 
-$("#Office").click(function(){
-    //$("div").filter(".hom").css("display","none")
-    $(".hom").fadeOut(1000)
-    $(".off").fadeIn(1000)
-})  
- */
-
-// nice scroll
-/* $("a").click(function(){
-    let aref=$(this).attr("href");
-    let secrionoffset=$(aref).offset();
-    $("html body").animate({scrollTop:secrionoffset},2000)
-
-}) */
-//active botton
-$("#MENU .container-fluid  li").click(function(){
-    $(this).addClass("active");
-    $(this).siblings().removeClass("active");
-    
-})
- // loading
-
-    $("#loading").fadeOut(3000,function(){
-        $("body").css("overflow","auto")
-    })
-}) 
-
-
-
-
-
+      /* ========= Hero Parallax ========= */
+      $(window).on('scroll', function(){
+        const y = $(window).scrollTop();
+        if(y < window.innerHeight){
+          $('.hero-content').css('transform', 'translateY(' + (y * .12) + 'px)');
+          $('.scroll-indicator').css('opacity', Math.max(0, 1 - y / 250));
+        }
+      });
+    });
